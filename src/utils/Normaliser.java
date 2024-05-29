@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Normaliser {
     private final List<String> normalisedTitles;
+    private static final double qualityThreshold = 0.3;
 
     public Normaliser() {
         normalisedTitles = Arrays.asList("Architect", "Software engineer", "Quantity surveyor", "Accountant");
@@ -69,7 +70,7 @@ public class Normaliser {
             }
         }
 
-        if (highestQuality < 0.5 || bestMatch.isEmpty()) {
+        if (highestQuality < qualityThreshold || bestMatch.isEmpty()) {
             return "No match found";
         } else {
             return bestMatch;
